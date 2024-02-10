@@ -80,16 +80,20 @@ In summary, Inertia.js offers a secure, efficient, and developer-friendly approa
     php artisan migrate:fresh --seed
     ```
 
-8. Run the development server:
+8. Run the Backend development server:
 
     ```bash
     php artisan serve
     ```
+  
+9. Run the Frontend development server:
+
+   
       ```bash
     npm run dev
     ```
 
-9. Visit `http://localhost:8000` in your web browser to view the application.
+10. Visit `http://localhost:8000` in your web browser to view the application.
 
 ## Usage
 
