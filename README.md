@@ -41,13 +41,13 @@ In summary, Inertia.js offers a secure, efficient, and developer-friendly approa
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/your-repository.git
+    git clone https://github.com/ElmaallemSalah/tasks.git
     ```
 
 2. Navigate into the project directory:
 
     ```bash
-    cd your-repository
+    cd tasks
     ```
 
 3. Install PHP dependencies:
@@ -70,16 +70,19 @@ In summary, Inertia.js offers a secure, efficient, and developer-friendly approa
     php artisan key:generate
     ```
 
-7. Migrate the database:
+7. Migrate the database with seeders:
 
     ```bash
-    php artisan migrate
+    php artisan migrate:fresh --seed
     ```
 
 8. Run the development server:
 
     ```bash
     php artisan serve
+    ```
+      ```bash
+    npm run dev
     ```
 
 9. Visit `http://localhost:8000` in your web browser to view the application.
