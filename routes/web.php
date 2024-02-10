@@ -50,36 +50,19 @@ Route::middleware('auth')->group(function () {
 
     //Task routs _________________________________________________________________________________________
     Route::get('/tasks', [TaskController::class, 'index'])
- 
         ->name('task.index');
     Route::get('/task/create', [TaskController::class, 'create'])
-
         ->name('task.create');
     Route::post('/task/store', [TaskController::class, 'store'])
-      
         ->name('task.store');
     Route::get('/task/edit/{id}', [TaskController::class, 'edit'])
-    
         ->name('task.edit');
     Route::post('/task/update', [TaskController::class, 'update'])
-       
         ->name('task.update');
     Route::delete('/task/destroy/{id}', [TaskController::class, 'destroy'])
-       
         ->name('task.destroy');
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Route::post('/task/tougleCompleted/{id}', [TaskController::class, 'tougleCompleted'])
+        ->name('task.tougleCompleted');
 });
 
 
@@ -105,4 +88,4 @@ Route::middleware('auth')->group(function () {
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
