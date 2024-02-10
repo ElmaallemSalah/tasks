@@ -55,6 +55,10 @@ In summary, Inertia.js offers a secure, efficient, and developer-friendly approa
     ```bash
     composer install
     ```
+    OR
+     ```bash
+    composer update
+    ```
 
 4. Install JavaScript dependencies:
 
@@ -62,7 +66,7 @@ In summary, Inertia.js offers a secure, efficient, and developer-friendly approa
     npm install
     ```
 
-5. Set up your environment variables by renaming `.env.example` to `.env` and configuring the necessary settings such as database connection.
+5. Set up your environment variables by renaming `.env.example` to `.env` and configuring the database connection.
 
 6. Generate an application key:
 
@@ -90,6 +94,9 @@ In summary, Inertia.js offers a secure, efficient, and developer-friendly approa
 ## Usage
 
 1. Register for a new account or login with existing credentials.
+
+   Email :admin@admin.com
+   Password : password
 2. Start managing your tasks by creating, updating, or deleting them.
 3. Enjoy the real-time updates and seamless user experience provided by the application.
 
