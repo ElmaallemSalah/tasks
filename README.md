@@ -121,4 +121,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-**Note:** This README is a template and should be customized according to the specifics of your project.
+
