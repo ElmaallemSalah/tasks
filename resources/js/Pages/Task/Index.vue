@@ -17,6 +17,7 @@ import Pagination from "@/Components/Pagination.vue";
 import SearchInput from "@/Components/SearchInput.vue";
 import SwalCom from "@/Components/Swal.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import  useDestroy from '../../Composables/UseDestroy';
 import {
     Head,
     Link,
@@ -24,9 +25,7 @@ import {
     useForm,
 } from "@inertiajs/vue3";
 
-router.on('success', (event) => {
-    initFlowbite()
-})
+
 const props = defineProps({
     tasks: {
         type: Object,
@@ -53,23 +52,8 @@ const form = useForm({});
 
 function destroy(id) {
 
-    Swal.fire({
-        title: "Are you sure you want to Delete?",
-        showDenyButton: false,
-        showCancelButton: true,
-        confirmButtonText: "Yes, Delete it!",
-        denyButtonText: `Don't Delete it!`
-    }).then((result) => {
+    useDestroy().destroy('task.destroy',id);
 
-        if (result.isConfirmed) {
-
-            form.delete(route("task.destroy",
-                id), {
-                preserveState: true,
-                preserveScroll: true,
-            });
-        }
-    });
 }
 function tougleCompleted(id) {
     console.log(id);
