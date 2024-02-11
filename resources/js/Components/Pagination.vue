@@ -8,7 +8,7 @@
                         v-html="link.label"
                     />
     
-                    <Link preserve-state
+                    <Link preserve-state preserve-scroll
                         v-else
                         class="px-4 py-3 mb-1 mr-1 text-sm leading-4 border rounded hover:bg-white focus:border-primary focus:text-primary"
                         :class="{ 'bg-blue-700 text-white': link.active }"

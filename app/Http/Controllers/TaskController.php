@@ -57,6 +57,8 @@ class TaskController extends Controller
         $perPage = $request->input('perPage');
 
         return inertia('Task/Index', compact('tasks', 'search', 'perPage', 'date_min', 'date_max'));
+   
+   
     }
 
     /**
