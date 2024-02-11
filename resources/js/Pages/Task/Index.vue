@@ -94,7 +94,7 @@ watch([search, perPage, date_min, date_max], debounce(function ([searchVal, perP
         date_min: formattedDate_Min,
         date_max: formattedDate_Max,
     }, {
-        preserveState: true, replace: true
+        preserveState: true, replace: true ,preserveScroll: true
     });
 }, 650))
 </script>
