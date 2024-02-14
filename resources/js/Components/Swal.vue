@@ -1,11 +1,14 @@
 <template></template>
+
 <script setup>
 import {
     onMounted,
     onUpdated,
 } from "vue";
 
-import Swal from "sweetalert2";
+import { useToast } from "vue-toastification";
+
+const toast = useToast();
 
 const props = defineProps({
     status: {
@@ -14,23 +17,23 @@ const props = defineProps({
     },
 });
 
-function showSwal() {
-    Swal.fire(
-        props.status.action,
-        props.status.text,
-        props.status.type
-    )
+function showToast() {
+    toast(props.status.text,{
+       
+     
+        type: props.status.type
+    });
 }
 
 onMounted(() => {
     if (props.status) {
-        showSwal()
+        showToast();
     }
-})
+});
 
 onUpdated(() => {
     if (props.status) {
-        showSwal()
+        showToast();
     }
-})
+});
 </script>

@@ -1,15 +1,15 @@
-import { ref } from 'vue';
-import Swal from 'sweetalert2';
-import {
+import { ref } from "vue";
 
-  useForm,
-} from "@inertiajs/vue3";
+import Swal from "sweetalert2";
+import { useToast } from "vue-toastification";
 
+import { useForm } from "@inertiajs/vue3";
 
 export default function useDestroy() {
 
   const form = useForm({});
   const deleteResult = ref(null);
+  const toast = useToast();
 
   const destroy = (routeName, id) => {
     Swal.fire({
@@ -22,9 +22,18 @@ export default function useDestroy() {
       if (result.isConfirmed) {
         // Assuming 'form' and 'route' are globally accessible objects or imported dependencies
         form.delete(route(routeName, id), {
-          preserveState: true,
+    
           preserveScroll: true,
-        });
+          onSuccess: page => {
+
+           toast.success("Task created successfully!");
+        
+          },
+          
+        },
+        
+        
+        );
       }
     });
   };

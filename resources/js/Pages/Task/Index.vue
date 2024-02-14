@@ -8,6 +8,7 @@ import { initFlowbite } from "flowbite";
 import debounce from "lodash/debounce";
 import moment from "moment";
 import Swal from "sweetalert2";
+import { useToast } from "vue-toastification";
 
 import DateMaxInput from "@/Components/DateMaxInput.vue";
 import DateMinInput from "@/Components/DateMinInput.vue";
@@ -17,7 +18,6 @@ import Pagination from "@/Components/Pagination.vue";
 import SearchInput from "@/Components/SearchInput.vue";
 import SwalCom from "@/Components/Swal.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import  useDestroy from '../../Composables/UseDestroy';
 import {
     Head,
     Link,
@@ -25,6 +25,9 @@ import {
     useForm,
 } from "@inertiajs/vue3";
 
+import useDestroy from "../../Composables/UseDestroy";
+
+const toast = useToast();
 
 const props = defineProps({
     tasks: {
@@ -51,8 +54,11 @@ const props = defineProps({
 const form = useForm({});
 
 function destroy(id) {
+ useDestroy().destroy('task.destroy',id);
+    //fire a swam if the task is deleted 
+   
 
-    useDestroy().destroy('task.destroy',id);
+
 
 }
 function tougleCompleted(id) {
@@ -60,6 +66,9 @@ function tougleCompleted(id) {
     form.post(route("task.tougleCompleted", id), {
         preserveState: true,
         preserveScroll: true,
+        onSuccess:()=>{
+            toast.success("Task's status updates successfully!");
+        }
     });
 }
 
@@ -85,7 +94,7 @@ watch([search, perPage, date_min, date_max], debounce(function ([searchVal, perP
 
 <template>
     <Head title="Dashboard" />
-    <SwalCom v-if="$page?.props.flash?.status" :status="$page?.props.flash?.status" />
+    <SwalCom v-if="$page?.props.flash?.status" :status="$page?.props.flash?.status"  />
 
     <AuthenticatedLayout>
         <template #header>

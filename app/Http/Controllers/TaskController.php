@@ -89,7 +89,7 @@ class TaskController extends Controller
         ]);
 
 
-        return redirect()->route('task.index')->with('status', ['type' => 'success', 'action' => 'Success', 'text' => 'Task created successfully!']);
+        return to_route('task.index')->with('status', ['type' => 'success', 'action' => 'Success', 'text' => 'Task created successfully!']);
     }
 
     /**
@@ -138,7 +138,7 @@ class TaskController extends Controller
 
         $task->save();
 
-        return redirect()->route('task.index')->with('status', ['type' => 'success', 'action' => 'Success', 'text' => 'Task updated successfully!']);
+        return to_route('task.index')->with('status', ['type' => 'success', 'action' => 'Success', 'text' => 'Task updated successfully!']);
     }
     public function tougleCompleted(Request $request)
 
@@ -168,8 +168,12 @@ class TaskController extends Controller
         $task->delete();
 
 
-       // return redirect()->route('task.index')->with('status', ['type' => 'success', 'action' => 'Success', 'text' => 'Task Delete Successfully!']);
 
+
+      
+      //  return response()->json(['status' => ['type' => 'success', 'action' => 'Success', 'text' => 'Task Delete Successfully!']]);
+
+      
 
         //  with('message', 'Blog Delete Successfully');
     }
