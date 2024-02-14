@@ -29,6 +29,9 @@ export default function useDestroy() {
            toast.success("Task created successfully!");
         
           },
+          onError:()=>{
+            toast.error("Task's status updates failed!");
+        }
           
         },
         

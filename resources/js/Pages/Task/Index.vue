@@ -68,6 +68,9 @@ function tougleCompleted(id) {
         preserveScroll: true,
         onSuccess:()=>{
             toast.success("Task's status updates successfully!");
+        },
+        onError:()=>{
+            toast.error("Task's status updates failed!");
         }
     });
 }
