@@ -10,7 +10,6 @@ export default function useDestroy() {
   const form = useForm({});
   const deleteResult = ref(null);
   const toast = useToast();
-
   const destroy = (routeName, id) => {
     Swal.fire({
       title: "Are you sure you want to Delete?",
